@@ -15,6 +15,19 @@ describe('Main Page Tests', () => {
         console.log('Found title text:', titleText)
         expect(titleText).toBe('Manage Products')
     });
+    it('should click on any product in the table', async() => {
+        let table = await $('.ProductsTable')
+        await table.waitForDisplayed({ timeout: 10000 })
+
+        const productRow = await table.$('tr:nth-child(2)')
+        await productRow.waitForDisplayed({ timeout: 10000 })
+        await productRow.click()
+
+        await browser.pause(5000)
+
+        
+    });
+    
     
     
     

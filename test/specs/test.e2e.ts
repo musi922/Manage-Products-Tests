@@ -23,7 +23,7 @@ describe('Main Page Tests', () => {
         await productRow.waitForDisplayed({ timeout: 10000 })
         await productRow.click()
 
-        await browser.pause(5000)
+        await browser.pause(8000)
     });
     
     it('should verify if we are on details page', async() => {
@@ -38,7 +38,7 @@ describe('Main Page Tests', () => {
         let backBtn = await $('button=Back')
         await backBtn.waitForDisplayed({ timeout: 10000 })
         await backBtn.click()
-        await browser.pause(5000)
+        await browser.pause(8000)
         
     });
     

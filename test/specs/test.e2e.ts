@@ -24,9 +24,24 @@ describe('Main Page Tests', () => {
         await productRow.click()
 
         await browser.pause(5000)
+    });
+    
+    it('should verify if we are on details page', async() => {
+        let title = await $('.detailsProduct')
+        await title.waitForDisplayed({ timeout: 10000 })
 
+        const titleText = await title.getText()
+        expect(titleText).toBe('Product Details')
+        await browser.pause(5000)
+    });
+    it('should click on back button', async() => {
+        let backBtn = await $('button=Back')
+        await backBtn.waitForDisplayed({ timeout: 10000 })
+        await backBtn.click()
+        await browser.pause(5000)
         
     });
+    
     
     
     

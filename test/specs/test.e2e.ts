@@ -59,6 +59,30 @@ describe('Main Page Tests', () => {
         await browser.pause(5000)
         
     });
+    it('should click on Add to Cart button', async() => {
+        let table = await $('.ProductsTable')
+        await table.waitForDisplayed({ timeout: 10000 })
+
+        const productRow = await table.$('tr:nth-child(2)')
+        await productRow.waitForDisplayed({ timeout: 10000 })
+        await productRow.click()
+
+        let title = await $('.detailsProduct')
+        await title.waitForDisplayed({ timeout: 10000 })
+
+        const titleText = await title.getText()
+        expect(titleText).toBe('Product Details')
+        await browser.pause(5000)
+
+        let addToCart = $('button=Add To CART')
+        await  addToCart.waitForDisplayed({ timeout: 10000 })
+        await addToCart.click()
+        await browser.pause(5000)
+        let confirmAddToCart = $('button=Add')
+        await confirmAddToCart.waitForDisplayed({ timeout: 10000 })
+        await confirmAddToCart.click()
+        
+    });
     
     
     

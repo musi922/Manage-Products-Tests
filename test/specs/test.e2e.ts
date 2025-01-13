@@ -81,8 +81,35 @@ describe('Main Page Tests', () => {
         let confirmAddToCart = $('button=Add')
         await confirmAddToCart.waitForDisplayed({ timeout: 10000 })
         await confirmAddToCart.click()
+        await browser.pause(5000)
+        let backBtn = $('.sapMBtnBack')
+        await  backBtn.waitForDisplayed({ timeout: 10000 })
+        await backBtn.click()
+        await browser.pause(5000)
         
     });
+    it('should Delete a product', async() => {
+        let table = await $('.ProductsTable')
+        await table.waitForDisplayed({ timeout: 10000 })
+
+        const productRow = await table.$('tr:nth-child(2)')
+        await productRow.waitForDisplayed({ timeout: 10000 })
+
+        let delteButton = productRow.$('.delete')
+        await delteButton.waitForDisplayed({ timeout: 10000 })  
+        await delteButton.click()
+        await browser.pause(5000)
+        let confirmDelete = $('button=OK')
+        await confirmDelete.waitForDisplayed({ timeout: 10000 })
+        await confirmDelete.click()
+        await browser.pause(5000)
+        let successBtn = $('button=OK')
+        await successBtn.waitForDisplayed({ timeout: 10000 })
+        await successBtn.click()
+        await browser.pause(5000)
+        
+    });
+    
     
     
     

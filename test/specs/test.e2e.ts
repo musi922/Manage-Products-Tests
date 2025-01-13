@@ -41,6 +41,25 @@ describe('Main Page Tests', () => {
         await browser.pause(8000)
         
     });
+    it('should should click on Cart button', async() => {
+        let cartBtn = await $('button=CART')
+        await cartBtn.waitForDisplayed({ timeout: 10000 })
+        await cartBtn.click()
+        await browser.pause(5000)
+        let cartTittle = await $('.cartTitle')
+        await cartTittle.waitForDisplayed({ timeout: 10000 })
+        const titleText = await cartTittle.getText()
+        expect(titleText).toBe('This is the list of your shopping cart')
+        await browser.pause(5000)
+    });
+    it('should click on Nav Back Button', () => {
+        let backBtn = $('button=Back')
+        backBtn.waitForDisplayed({ timeout: 10000 })
+        backBtn.click()
+        browser.pause(5000)
+        
+    });
+    
     
     
     

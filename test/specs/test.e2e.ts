@@ -52,11 +52,11 @@ describe('Main Page Tests', () => {
         expect(titleText).toBe('This is the list of your shopping cart')
         await browser.pause(5000)
     });
-    it('should click on Nav Back Button', () => {
-        let backBtn = $('button=Back')
-        backBtn.waitForDisplayed({ timeout: 10000 })
-        backBtn.click()
-        browser.pause(5000)
+    it('should click on Nav Back Button', async() => {
+        let backBtn = $('.sapMBtnBack')
+        await  backBtn.waitForDisplayed({ timeout: 10000 })
+        await backBtn.click()
+        await browser.pause(5000)
         
     });
     
